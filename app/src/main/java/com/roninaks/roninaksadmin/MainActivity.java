@@ -5,6 +5,8 @@ import android.os.Bundle;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -27,4 +29,15 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
     }
 
+
+    //THis is the test commit
+    public void initFragment(Fragment fragment, String tag){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, fragment, tag).addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public void initFragment(Fragment fragment){
+        initFragment(fragment, "");
+    }
 }
